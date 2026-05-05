@@ -34,7 +34,7 @@
         z-index: 200;
         display: grid;
         grid-template-rows: auto 1fr;
-        background: rgba(6, 10, 12, 0.85);
+        background: transparent;
         backdrop-filter: none;
       }
 
@@ -542,6 +542,7 @@
       let fallbackAudioPool = [];
       let fallbackAudioIndex = 0;
       const isFileProtocol = window.location.protocol === 'file:';
+      let audioUnlocked = false;
 
       let rawAudioPromise = null;
 
@@ -580,6 +581,28 @@
               squeegeeBuffer = null;
             }
           }
+        }
+      }
+
+      async function unlockAudio() {
+        if (audioUnlocked) return;
+        audioUnlocked = true;
+        await ensureAudio();
+
+        if (isFileProtocol && fallbackAudioPool.length > 0) {
+          const audio = fallbackAudioPool[0];
+          const previousVolume = audio.volume;
+          audio.volume = 0;
+          audio
+            .play()
+            .then(() => {
+              audio.pause();
+              audio.currentTime = 0;
+              audio.volume = previousVolume;
+            })
+            .catch(() => {
+              audio.volume = previousVolume;
+            });
         }
       }
 
@@ -790,7 +813,7 @@
 
       canvas.addEventListener('pointerdown', (e) => {
         e.preventDefault();
-        ensureAudio();
+        unlockAudio();
         hint.style.opacity = '0';
         isDown = true;
         lastPt = getPoint(e);
