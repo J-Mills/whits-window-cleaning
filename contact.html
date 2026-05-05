@@ -104,7 +104,9 @@
           <div class="lg:col-span-2">
             <form id="contact-form" action="https://formspree.io/f/mqenbejp" method="POST" class="space-y-5">
               <input type="hidden" name="_subject" value="New quote request – Whit's Window Cleaning" />
-              <input type="hidden" name="_next" value="" />
+              <input type="hidden" name="_next" value="https://www.whitswindowcleaning.co.uk/contact.html?sent=true" />
+              <!-- Honeypot: bots fill this, Formspree will silently discard the submission -->
+              <input type="text" name="_gotcha" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
               <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
                 <div>
@@ -114,6 +116,7 @@
                     id="name"
                     name="name"
                     required
+                    autocomplete="name"
                     placeholder="John Smith"
                     class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   />
@@ -124,6 +127,7 @@
                     type="tel"
                     id="phone"
                     name="phone"
+                    autocomplete="tel"
                     placeholder="07951 115 977"
                     class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                   />
@@ -137,6 +141,7 @@
                   id="email"
                   name="email"
                   required
+                  autocomplete="email"
                   placeholder="john@example.com"
                   class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                 />
@@ -181,6 +186,7 @@
                   type="text"
                   id="address"
                   name="address"
+                  autocomplete="street-address"
                   placeholder="e.g. Guildford, GU1"
                   class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
                 />
@@ -334,8 +340,27 @@
             </ul>
           </div>
         </div>
-        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
           <p>&copy; 2026 Whit's Window Cleaning. All rights reserved.</p>
+          <div class="flex items-center gap-5">
+            <a
+              href="https://www.facebook.com/YOUR_PAGE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-accent transition-colors"
+              aria-label="Whit's Window Cleaning on Facebook"
+              ><i class="fa-brands fa-facebook-f text-lg" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/YOUR_HANDLE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-accent transition-colors"
+              aria-label="Whit's Window Cleaning on Instagram"
+              ><i class="fa-brands fa-instagram text-lg" aria-hidden="true"></i
+            ></a>
+            <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+          </div>
         </div>
       </div>
     </footer>
