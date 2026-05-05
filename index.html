@@ -1,0 +1,409 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Professional window cleaning and exterior maintenance across Berkshire, Hampshire &amp; Surrey. Fully insured, free quotes available."
+    />
+    <title>Whit's Window Cleaning – Surrey</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { accent: '#5CE1E6' },
+            fontFamily: { cinzel: ['Cinzel', 'serif'] },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <!-- NAV -->
+    <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <a href="index.html" class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-accent rounded flex items-center justify-center shrink-0">
+              <img src="assets/whits-window-cleaning-logo.png" alt="Whit's Window Cleaning" class="h-8 w-8 object-contain" />
+            </div>
+            <span class="font-semibold text-base sm:text-lg">Whit's Window Cleaning</span>
+          </a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="index.html" class="text-accent font-semibold">Home</a>
+            <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+            <a href="gallery.html" class="hover:text-accent transition-colors">Gallery</a>
+            <a href="contact.html" class="bg-accent text-black px-4 py-2 rounded font-semibold hover:opacity-90 transition-opacity">Get a Quote</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+        <div class="px-4 py-4 space-y-1">
+          <a href="index.html" class="block text-accent font-semibold py-2">Home</a>
+          <a href="services.html" class="block hover:text-accent py-2 transition-colors">Services</a>
+          <a href="gallery.html" class="block hover:text-accent py-2 transition-colors">Gallery</a>
+          <a href="contact.html" class="block bg-accent text-black px-4 py-2 rounded font-semibold text-center mt-3">Get a Quote</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="bg-black text-white pt-6 pb-14 lg:py-16 px-4 relative overflow-hidden">
+      <div class="absolute inset-0 opacity-5">
+        <div class="absolute top-0 right-0 w-1/2 h-full bg-accent"></div>
+      </div>
+      <div class="max-w-7xl mx-auto relative">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center space-x-3 mb-5">
+              <div class="h-0.5 w-10 bg-accent"></div>
+              <span class="text-accent text-xs font-semibold uppercase tracking-widest">Trusted Across Berkshire, Hampshire &amp; Surrey</span>
+            </div>
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-bold leading-tight mb-6">
+              Crystal Clear Results,<br /><span class="text-accent">Every Time</span>
+            </h1>
+            <p class="text-gray-300 text-lg mb-10 leading-relaxed max-w-xl">
+              Professional window cleaning and exterior maintenance for homes and businesses across Berkshire, Hampshire &amp; Surrey. Reliable, fully insured,
+              and guaranteed to impress.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4">
+              <a href="contact.html" class="bg-accent text-black font-semibold px-8 py-3 rounded text-center hover:opacity-90 transition-opacity">
+                Get a Free Quote
+              </a>
+              <a
+                href="services.html"
+                class="border border-white text-white font-semibold px-8 py-3 rounded text-center hover:border-accent hover:text-accent transition-colors"
+              >
+                View Services
+              </a>
+            </div>
+          </div>
+          <div class="flex flex-col items-center justify-center mb-8 lg:mb-0 order-first lg:order-last">
+            <img
+              src="assets/whits-window-cleaning-logo.png"
+              alt="Whit's Window Cleaning"
+              class="w-48 sm:w-64 object-contain"
+              style="filter: brightness(0) saturate(100%) invert(80%) sepia(50%) saturate(600%) hue-rotate(148deg) brightness(105%)"
+            />
+            <p class="mt-0 font-cinzel font-bold tracking-widest text-xl sm:text-2xl text-center text-accent leading-snug">WHITS<br />WINDOW CLEANING</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICES PREVIEW -->
+    <section class="py-20 bg-gray-50 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="flex items-center justify-center space-x-3 mb-3">
+            <div class="h-px w-10 bg-accent"></div>
+            <span class="text-accent text-xs font-semibold uppercase tracking-widest">What We Do</span>
+            <div class="h-px w-10 bg-accent"></div>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold">Our Services</h2>
+          <p class="text-gray-500 mt-3 max-w-lg mx-auto">From windows to solar panels, we cover all your exterior cleaning needs.</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 group">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent transition-colors">
+              <i class="fa-solid fa-window-restore text-accent text-xl group-hover:text-black transition-colors"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Window Cleaning</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Interior and exterior window cleaning using purified water-fed pole systems for a streak-free finish.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 group">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent transition-colors">
+              <i class="fa-solid fa-house text-accent text-xl group-hover:text-black transition-colors"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Fascia &amp; Soffit Cleaning</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Restore the look of your fascias and soffits, removing dirt, grime, and algae build-up.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 group">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent transition-colors">
+              <i class="fa-solid fa-building text-accent text-xl group-hover:text-black transition-colors"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Conservatory Cleaning</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Full conservatory clean including roof panels, frames, and all glass inside and out.</p>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 group">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent transition-colors">
+              <i class="fa-solid fa-droplet text-accent text-xl group-hover:text-black transition-colors"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Gutter Clearing</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">
+              Prevent water damage with our professional gutter clearing service, removing all debris and blockages.
+            </p>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm hover:shadow-md transition-shadow border border-gray-100 group">
+            <div class="w-12 h-12 bg-black rounded-lg flex items-center justify-center mb-4 group-hover:bg-accent transition-colors">
+              <i class="fa-solid fa-solar-panel text-accent text-xl group-hover:text-black transition-colors"></i>
+            </div>
+            <h3 class="font-bold text-lg mb-2">Solar Panel Cleaning</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">Maximise solar efficiency with specialist cleaning. Dirty panels can lose up to 30% output.</p>
+          </div>
+          <div class="bg-black rounded-xl p-6 flex flex-col justify-between">
+            <div>
+              <h3 class="font-bold text-lg text-white mb-2">Not sure what you need?</h3>
+              <p class="text-gray-400 text-sm leading-relaxed">Get in touch and we'll advise on the best service for your property — no obligation.</p>
+            </div>
+            <a
+              href="contact.html"
+              class="mt-6 bg-accent text-black font-semibold px-5 py-2.5 rounded text-center hover:opacity-90 transition-opacity text-sm inline-block"
+            >
+              Contact Us
+            </a>
+          </div>
+        </div>
+        <div class="text-center mt-10">
+          <a
+            href="services.html"
+            class="border-2 border-black text-black font-semibold px-8 py-3 rounded hover:bg-black hover:text-white transition-colors inline-block"
+          >
+            View All Services &amp; Pricing
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="py-20 bg-white px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="h-0.5 w-10 bg-accent"></div>
+              <span class="text-accent text-xs font-semibold uppercase tracking-widest">About Us</span>
+            </div>
+            <h2 class="text-3xl sm:text-4xl font-bold mb-6">About Whit's Window Cleaning</h2>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              [Placeholder — tell your story here. How long have you been cleaning windows? What do you love about the job? Why did you start your own
+              business?]
+            </p>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              Based in Surrey and covering Hampshire &amp; Berkshire, Whit's Window Cleaning is a trusted local service for homeowners and businesses alike. We
+              take pride in delivering exceptional results with every visit, using professional-grade equipment and eco-friendly products.
+            </p>
+            <p class="text-gray-600 mb-8 leading-relaxed">
+              Fully insured and committed to customer satisfaction, we build long-lasting relationships with our clients — most of whom become regular customers
+              who trust us to keep their properties looking their best year-round.
+            </p>
+            <div class="grid grid-cols-2 gap-4 mb-8">
+              <div class="text-center p-4 bg-gray-50 rounded-xl">
+                <div class="text-3xl font-bold text-accent">100%</div>
+                <div class="text-sm text-gray-500 mt-1">Satisfaction Guaranteed</div>
+              </div>
+              <div class="text-center p-4 bg-gray-50 rounded-xl">
+                <div class="text-3xl font-bold text-accent">5 ★</div>
+                <div class="text-sm text-gray-500 mt-1">Rated by Customers</div>
+              </div>
+            </div>
+            <a href="contact.html" class="bg-black text-white font-semibold px-8 py-3 rounded hover:bg-gray-900 transition-colors inline-block">
+              Get in Touch
+            </a>
+          </div>
+          <div class="relative">
+            <!-- Replace this block with: <img src="assets/about.jpg" alt="Whit at work" class="rounded-xl shadow-lg w-full object-cover"> -->
+            <div class="bg-gray-100 rounded-xl aspect-[4/3] flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
+              <i class="fa-solid fa-image text-4xl text-gray-300 mb-3"></i>
+              <p class="text-gray-400 text-sm font-medium">Add your photo here</p>
+              <p class="text-gray-300 text-xs mt-1">assets/about.jpg — recommended 800×600px</p>
+            </div>
+            <div class="absolute -bottom-4 -right-4 bg-accent text-black px-4 py-3 rounded-lg font-bold text-sm shadow-lg">
+              Fully Insured<br />&amp; Professional
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY CHOOSE US -->
+    <section class="py-16 bg-black text-white px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold">Why Choose Whit's?</h2>
+          <p class="text-gray-400 mt-3">The reliable choice for exterior cleaning in Berkshire, Hampshire &amp; Surrey</p>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-shield-halved text-accent text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Fully Insured</h3>
+            <p class="text-gray-400 text-sm">Complete peace of mind with full public liability insurance.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-award text-accent text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Quality Results</h3>
+            <p class="text-gray-400 text-sm">Professional equipment and technique for a spotless finish.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-clock text-accent text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Reliable &amp; Punctual</h3>
+            <p class="text-gray-400 text-sm">We show up when we say we will, every single time.</p>
+          </div>
+          <div class="text-center p-6">
+            <div class="w-14 h-14 bg-white/5 rounded-full flex items-center justify-center mx-auto mb-4">
+              <i class="fa-solid fa-sterling-sign text-accent text-2xl"></i>
+            </div>
+            <h3 class="font-semibold text-lg mb-2">Competitive Rates</h3>
+            <p class="text-gray-400 text-sm">Transparent pricing with no hidden charges. Free quotes always.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- REVIEWS -->
+    <section class="py-20 bg-gray-50 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="text-center mb-12">
+          <div class="flex items-center justify-center space-x-3 mb-3">
+            <div class="h-px w-10 bg-accent"></div>
+            <span class="text-accent text-xs font-semibold uppercase tracking-widest">Reviews</span>
+            <div class="h-px w-10 bg-accent"></div>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-bold">What Our Customers Say</h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex text-accent mb-4 text-sm gap-0.5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              "Fantastic service! Whit does an absolutely brilliant job on our windows every time. Reliable, professional and great value. Highly recommend!"
+            </p>
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">ST</div>
+              <div>
+                <div class="font-semibold text-sm">Sarah T.</div>
+                <div class="text-gray-400 text-xs">Guildford</div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex text-accent mb-4 text-sm gap-0.5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              "Had the gutters cleared and windows done at the same time. Excellent work, very thorough and the windows are absolutely spotless. Will definitely
+              use again."
+            </p>
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">JM</div>
+              <div>
+                <div class="font-semibold text-sm">James M.</div>
+                <div class="text-gray-400 text-xs">Woking</div>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100">
+            <div class="flex text-accent mb-4 text-sm gap-0.5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-gray-600 text-sm leading-relaxed mb-5">
+              "We've been using Whit's for over a year now. Always on time, always does a brilliant job. Wouldn't use anyone else!"
+            </p>
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">LK</div>
+              <div>
+                <div class="font-semibold text-sm">Lisa K.</div>
+                <div class="text-gray-400 text-xs">Epsom</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="bg-accent py-16 px-4">
+      <div class="max-w-4xl mx-auto text-center">
+        <h2 class="text-3xl font-bold text-black mb-3">Ready for Spotless Windows?</h2>
+        <p class="text-black/70 mb-8 text-lg">Get in touch today for a free, no-obligation quote across Berkshire, Hampshire &amp; Surrey.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="contact.html" class="bg-black text-white font-semibold px-8 py-3 rounded hover:bg-gray-900 transition-colors"> Get a Free Quote </a>
+          <a
+            href="tel:+447951115977"
+            class="border-2 border-black text-black font-semibold px-8 py-3 rounded hover:bg-black hover:text-white transition-colors"
+          >
+            <i class="fa-solid fa-phone mr-2"></i>07951 115 977
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 bg-accent rounded flex items-center justify-center shrink-0">
+                <img src="assets/whits-window-cleaning-logo.png" alt="Whit's Window Cleaning" class="h-8 w-8 object-contain" />
+              </div>
+              <span class="font-semibold">Whit's Window Cleaning</span>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">Professional window cleaning and exterior maintenance across Berkshire, Hampshire &amp; Surrey.</p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4 text-accent">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+              <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4 text-accent">Get In Touch</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-phone text-accent w-4 shrink-0"></i>
+                <a href="tel:+447951115977" class="hover:text-white transition-colors">07951 115 977</a>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-envelope text-accent w-4 shrink-0"></i>
+                <a href="mailto:whitswindowclean@gmail.com" class="hover:text-white transition-colors">whitswindowclean@gmail.com</a>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-location-dot text-accent w-4 shrink-0"></i>
+                <span>Berkshire, Hampshire &amp; Surrey</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+          <p>&copy; 2026 Whit's Window Cleaning. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>

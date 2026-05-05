@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Gallery of window cleaning and exterior maintenance work by Whit's Window Cleaning across Berkshire, Hampshire &amp; Surrey.">
+  <title>Gallery – Whit's Window Cleaning</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: { accent: '#5CE1E6' }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Poppins', sans-serif; }
+
+    .gallery-item { break-inside: avoid; margin-bottom: 1rem; }
+    .gallery-item img { display: block; width: 100%; border-radius: 0.75rem; transition: transform 0.3s ease, box-shadow 0.3s ease; }
+    .gallery-item:hover img { transform: scale(1.02); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
+
+    #lightbox {
+      display: none; position: fixed; inset: 0;
+      background: rgba(0,0,0,0.92); z-index: 100;
+      align-items: center; justify-content: center;
+    }
+    #lightbox.open { display: flex; }
+    #lightbox img { max-width: 90vw; max-height: 85vh; object-fit: contain; border-radius: 0.5rem; }
+    #lightbox-close {
+      position: absolute; top: 1.25rem; right: 1.25rem;
+      color: white; font-size: 1.25rem; cursor: pointer;
+      background: rgba(255,255,255,0.1); width: 2.5rem; height: 2.5rem;
+      border-radius: 50%; display: flex; align-items: center; justify-content: center;
+      border: none;
+    }
+    #lightbox-caption {
+      position: absolute; bottom: 1.5rem; left: 50%; transform: translateX(-50%);
+      color: white; font-size: 0.875rem; background: rgba(0,0,0,0.5);
+      padding: 0.4rem 1rem; border-radius: 999px; white-space: nowrap;
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+<body class="bg-white text-gray-900">
+
+  <!-- NAV -->
+  <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex justify-between items-center h-16">
+        <a href="index.html" class="flex items-center space-x-3">
+          <div class="w-10 h-10 bg-accent rounded flex items-center justify-center shrink-0">
+            <img src="assets/whits-window-cleaning-logo.png" alt="Whit's Window Cleaning" class="h-8 w-8 object-contain">
+          </div>
+          <span class="font-semibold text-base sm:text-lg">Whit's Window Cleaning</span>
+        </a>
+        <div class="hidden md:flex items-center space-x-8">
+          <a href="index.html" class="hover:text-accent transition-colors">Home</a>
+          <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+          <a href="gallery.html" class="text-accent font-semibold">Gallery</a>
+          <a href="contact.html" class="bg-accent text-black px-4 py-2 rounded font-semibold hover:opacity-90 transition-opacity">Get a Quote</a>
+        </div>
+        <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+          <i class="fa-solid fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+    <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+      <div class="px-4 py-4 space-y-1">
+        <a href="index.html" class="block hover:text-accent py-2 transition-colors">Home</a>
+        <a href="services.html" class="block hover:text-accent py-2 transition-colors">Services</a>
+        <a href="gallery.html" class="block text-accent font-semibold py-2">Gallery</a>
+        <a href="contact.html" class="block bg-accent text-black px-4 py-2 rounded font-semibold text-center mt-3">Get a Quote</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- PAGE HERO -->
+  <section class="bg-black text-white py-16 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex items-center space-x-3 mb-3">
+        <div class="h-0.5 w-10 bg-accent"></div>
+        <span class="text-accent text-xs font-semibold uppercase tracking-widest">Our Work</span>
+      </div>
+      <h1 class="text-4xl sm:text-5xl font-bold">Gallery</h1>
+      <p class="text-gray-400 mt-3 text-lg max-w-xl">A look at some of our recent work across Berkshire, Hampshire &amp; Surrey — windows, gutters, conservatories and more.</p>
+    </div>
+  </section>
+
+  <!-- FILTER TABS -->
+  <div class="sticky top-16 bg-white border-b border-gray-100 z-40 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="flex space-x-2 overflow-x-auto py-3" style="-ms-overflow-style:none; scrollbar-width:none;">
+        <button class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium bg-black text-white" data-filter="all">All</button>
+        <button class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-black transition-colors" data-filter="windows">Windows</button>
+        <button class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-black transition-colors" data-filter="gutters">Gutters</button>
+        <button class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-black transition-colors" data-filter="conservatory">Conservatory</button>
+        <button class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-black transition-colors" data-filter="solar">Solar Panels</button>
+        <button class="filter-btn shrink-0 px-4 py-1.5 rounded-full text-sm font-medium text-gray-500 hover:text-black transition-colors" data-filter="fascia">Fascia &amp; Soffit</button>
+      </div>
+    </div>
+  </div>
+
+  <!--
+    TO ADD YOUR OWN PHOTOS:
+    1. Copy images into the assets/ folder (e.g. assets/job1.jpg)
+    2. Replace each placeholder <img> src with your file path: src="assets/job1.jpg"
+    3. Update the alt text and data-caption for each image
+    4. Set data-category on the parent div to match a filter tab:
+       windows | gutters | conservatory | solar | fascia
+    5. You can add as many gallery-item divs as you like
+  -->
+  <section class="py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="columns-1 sm:columns-2 lg:columns-3 gap-4" id="gallery-grid">
+
+        <div class="gallery-item cursor-pointer" data-category="windows">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x400/111111/5CE1E6?text=Window+Clean" alt="Residential window cleaning" data-caption="Residential window clean — Guildford">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="gutters">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x750/111111/5CE1E6?text=Gutter+Clear" alt="Gutter clearing" data-caption="Gutter clearing — Woking">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="conservatory">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x500/111111/5CE1E6?text=Conservatory" alt="Conservatory cleaning" data-caption="Conservatory clean — Epsom">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="solar">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x450/111111/5CE1E6?text=Solar+Panels" alt="Solar panel cleaning" data-caption="Solar panel clean — Reigate">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="windows">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x800/111111/5CE1E6?text=Window+Clean+2" alt="Commercial window cleaning" data-caption="Commercial windows — Guildford">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="fascia">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x400/111111/5CE1E6?text=Fascia+%26+Soffit" alt="Fascia and soffit cleaning" data-caption="Fascia &amp; soffit — Dorking">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="gutters">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x500/111111/5CE1E6?text=Gutter+Clear+2" alt="Gutter clearing result" data-caption="Gutter clearing — Leatherhead">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="windows">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x600/111111/5CE1E6?text=Window+Clean+3" alt="Detached house windows" data-caption="Full house clean — Cobham">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="solar">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x700/111111/5CE1E6?text=Solar+Panels+2" alt="Solar panels after cleaning" data-caption="Solar panel clean — Camberley">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="conservatory">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x450/111111/5CE1E6?text=Conservatory+2" alt="Conservatory after cleaning" data-caption="Conservatory clean — Surbiton">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="fascia">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x550/111111/5CE1E6?text=Fascia+%26+Soffit+2" alt="Fascia cleaning result" data-caption="Fascia &amp; soffit — Redhill">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="gallery-item cursor-pointer" data-category="windows">
+          <div class="relative group overflow-hidden rounded-xl">
+            <img src="https://placehold.co/600x400/111111/5CE1E6?text=Window+Clean+4" alt="Flat window cleaning" data-caption="Flat windows — Kingston">
+            <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
+              <i class="fa-solid fa-expand text-white text-2xl"></i>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div id="gallery-empty" class="hidden text-center py-20 text-gray-400">
+        <i class="fa-solid fa-images text-4xl mb-4 block"></i>
+        <p class="font-medium">No photos in this category yet.</p>
+        <p class="text-sm mt-1">Check back soon!</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- LIGHTBOX -->
+  <div id="lightbox" role="dialog" aria-modal="true">
+    <button id="lightbox-close" aria-label="Close lightbox"><i class="fa-solid fa-xmark"></i></button>
+    <img id="lightbox-img" src="" alt="">
+    <div id="lightbox-caption"></div>
+  </div>
+
+  <!-- CTA -->
+  <section class="bg-accent py-16 px-4">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-3xl font-bold text-black mb-3">Like What You See?</h2>
+      <p class="text-black/70 mb-8 text-lg">Get in touch for a free quote on your property.</p>
+      <a href="contact.html" class="bg-black text-white font-semibold px-8 py-3 rounded hover:bg-gray-900 transition-colors inline-block">
+        Get a Free Quote
+      </a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-black text-white py-12 px-4">
+    <div class="max-w-7xl mx-auto">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <div class="w-10 h-10 bg-accent rounded flex items-center justify-center shrink-0">
+              <img src="assets/whits-window-cleaning-logo.png" alt="Whit's Window Cleaning" class="h-8 w-8 object-contain">
+            </div>
+            <span class="font-semibold">Whit's Window Cleaning</span>
+          </div>
+          <p class="text-gray-400 text-sm leading-relaxed">Professional window cleaning and exterior maintenance across Berkshire, Hampshire &amp; Surrey.</p>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4 text-accent">Quick Links</h4>
+          <ul class="space-y-2 text-gray-400 text-sm">
+            <li><a href="index.html" class="hover:text-white transition-colors">Home</a></li>
+            <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+            <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+            <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold mb-4 text-accent">Get In Touch</h4>
+          <ul class="space-y-3 text-gray-400 text-sm">
+            <li class="flex items-center space-x-2">
+              <i class="fa-solid fa-phone text-accent w-4 shrink-0"></i>
+              <a href="tel:+447951115977" class="hover:text-white transition-colors">07951 115 977</a>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fa-solid fa-envelope text-accent w-4 shrink-0"></i>
+              <a href="mailto:whitswindowclean@gmail.com" class="hover:text-white transition-colors">whitswindowclean@gmail.com</a>
+            </li>
+            <li class="flex items-center space-x-2">
+              <i class="fa-solid fa-location-dot text-accent w-4 shrink-0"></i>
+              <span>Berkshire, Hampshire &amp; Surrey</span>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="border-t border-gray-800 pt-8 text-center text-gray-500 text-sm">
+        <p>&copy; 2026 Whit's Window Cleaning. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Mobile nav
+    document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Gallery filter
+    const filterBtns = document.querySelectorAll('.filter-btn');
+    const items = document.querySelectorAll('.gallery-item');
+    const emptyState = document.getElementById('gallery-empty');
+
+    filterBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
+        filterBtns.forEach(b => {
+          b.classList.remove('bg-black', 'text-white');
+          b.classList.add('text-gray-500');
+        });
+        btn.classList.add('bg-black', 'text-white');
+        btn.classList.remove('text-gray-500');
+
+        const filter = btn.dataset.filter;
+        let visible = 0;
+        items.forEach(item => {
+          const show = filter === 'all' || item.dataset.category === filter;
+          item.style.display = show ? '' : 'none';
+          if (show) visible++;
+        });
+        emptyState.classList.toggle('hidden', visible > 0);
+      });
+    });
+
+    // Lightbox
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+    const lightboxCaption = document.getElementById('lightbox-caption');
+
+    items.forEach(item => {
+      item.addEventListener('click', () => {
+        const img = item.querySelector('img');
+        lightboxImg.src = img.src;
+        lightboxImg.alt = img.alt;
+        lightboxCaption.textContent = img.dataset.caption || '';
+        lightbox.classList.add('open');
+        document.body.style.overflow = 'hidden';
+      });
+    });
+
+    function closeLightbox() {
+      lightbox.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+
+    document.getElementById('lightbox-close').addEventListener('click', closeLightbox);
+    lightbox.addEventListener('click', e => { if (e.target === lightbox) closeLightbox(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
+</body>
+</html>
