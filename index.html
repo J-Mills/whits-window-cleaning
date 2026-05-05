@@ -124,6 +124,42 @@
         display: none;
       }
 
+      .window-cleaner__frame {
+        position: absolute;
+        inset: 0;
+        pointer-events: none;
+        z-index: 1;
+        border: 28px solid #fff;
+        box-shadow:
+          inset 0 0 12px rgba(0, 0, 0, 0.18),
+          inset 0 0 3px rgba(0, 0, 0, 0.1);
+      }
+
+      .window-cleaner__frame-bar {
+        position: absolute;
+        background: #fff;
+      }
+
+      .window-cleaner__frame-bar--v {
+        left: calc(50% - 8px);
+        top: 0;
+        bottom: 0;
+        width: 16px;
+        box-shadow:
+          4px 0 8px rgba(0, 0, 0, 0.2),
+          -4px 0 8px rgba(0, 0, 0, 0.2);
+      }
+
+      .window-cleaner__frame-bar--h {
+        top: calc(50% - 8px);
+        left: 0;
+        right: 0;
+        height: 16px;
+        box-shadow:
+          0 4px 8px rgba(0, 0, 0, 0.2),
+          0 -4px 8px rgba(0, 0, 0, 0.2);
+      }
+
       @media (max-width: 640px) {
         .window-cleaner__hud {
           flex-direction: column;
@@ -488,7 +524,7 @@
     <div id="window-cleaner" class="window-cleaner hidden" aria-hidden="true">
       <div class="window-cleaner__hud">
         <div>
-          <div class="window-cleaner__title">Make It Dirty</div>
+          <div class="window-cleaner__title">Clean the window!</div>
           <div class="text-sm text-gray-300 flex items-center gap-2">
             Drag to clean — <span id="window-cleaner-percent" class="text-accent font-bold">0% clean</span>
           </div>
@@ -500,6 +536,10 @@
       </div>
       <div class="window-cleaner__canvas-wrap">
         <canvas id="window-cleaner-canvas"></canvas>
+        <div class="window-cleaner__frame" aria-hidden="true">
+          <div class="window-cleaner__frame-bar window-cleaner__frame-bar--v"></div>
+          <div class="window-cleaner__frame-bar window-cleaner__frame-bar--h"></div>
+        </div>
         <div id="window-cleaner-hint" class="window-cleaner__hint">Drag to clean</div>
         <svg id="window-cleaner-squeegee" class="window-cleaner__squeegee" width="80" height="56" viewBox="0 0 80 56" xmlns="http://www.w3.org/2000/svg">
           <rect x="4" y="30" width="64" height="8" rx="2" fill="#c8c8c8" stroke="#999" stroke-width="0.5" />
