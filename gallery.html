@@ -8,6 +8,16 @@
       content="Gallery of window cleaning and exterior maintenance work by Whit's Window Cleaning across Berkshire, Hampshire &amp; Surrey."
     />
     <title>Gallery – Whit's Window Cleaning</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://www.whitswindowcleaning.co.uk/gallery.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.whitswindowcleaning.co.uk/gallery.html" />
+    <meta property="og:title" content="Gallery – Whit's Window Cleaning" />
+    <meta
+      property="og:description"
+      content="Gallery of window cleaning and exterior maintenance work by Whit's Window Cleaning across Berkshire, Hampshire &amp; Surrey."
+    />
+    <meta property="og:image" content="https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -94,6 +104,11 @@
     </style>
   </head>
   <body class="bg-white text-gray-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-accent focus:text-black focus:font-semibold focus:px-4 focus:py-2 focus:rounded"
+      >Skip to main content</a
+    >
     <!-- NAV -->
     <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -126,7 +141,7 @@
     </nav>
 
     <!-- PAGE HERO -->
-    <section class="bg-black text-white py-16 px-4">
+    <section id="main-content" class="bg-black text-white py-16 px-4">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center space-x-3 mb-3">
           <div class="h-0.5 w-10 bg-accent"></div>
@@ -454,6 +469,11 @@
       });
       document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') closeLightbox();
+      });
+    </script>
+    <script>
+      document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {
+        el.setAttribute('aria-hidden', 'true');
       });
     </script>
   </body>

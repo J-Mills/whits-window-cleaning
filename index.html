@@ -7,7 +7,18 @@
       name="description"
       content="Professional window cleaning and exterior maintenance across Berkshire, Hampshire &amp; Surrey. Fully insured, free quotes available."
     />
-    <title>Whit's Window Cleaning – Surrey</title>
+    <title>Whit's Window Cleaning – Berkshire, Hampshire &amp; Surrey</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://www.whitswindowcleaning.co.uk/" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.whitswindowcleaning.co.uk/" />
+    <meta property="og:title" content="Whit's Window Cleaning – Berkshire, Hampshire &amp; Surrey" />
+    <meta
+      property="og:description"
+      content="Professional window cleaning and exterior maintenance across Berkshire, Hampshire &amp; Surrey. Fully insured, free quotes available."
+    />
+    <meta property="og:image" content="https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png" />
+    <link rel="preload" as="image" href="assets/whits-window-cleaning-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet" />
@@ -177,8 +188,28 @@
         }
       }
     </style>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Whit's Window Cleaning",
+        "description": "Professional window cleaning and exterior maintenance across Berkshire, Hampshire & Surrey. Fully insured, free quotes available.",
+        "url": "https://www.whitswindowcleaning.co.uk/",
+        "telephone": "+447951115977",
+        "email": "whitswindowclean@gmail.com",
+        "areaServed": ["Berkshire", "Hampshire", "Surrey"],
+        "serviceType": ["Window Cleaning", "Fascia & Soffit Cleaning", "Conservatory Cleaning", "Gutter Clearing", "Solar Panel Cleaning"],
+        "priceRange": "\u00a3\u00a3",
+        "image": "https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png"
+      }
+    </script>
   </head>
   <body class="bg-white text-gray-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-accent focus:text-black focus:font-semibold focus:px-4 focus:py-2 focus:rounded"
+      >Skip to main content</a
+    >
     <!-- NAV -->
     <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -211,7 +242,7 @@
     </nav>
 
     <!-- HERO -->
-    <section class="bg-black text-white pt-6 pb-14 lg:py-16 px-4 relative overflow-hidden">
+    <section id="main-content" class="bg-black text-white pt-6 pb-14 lg:py-16 px-4 relative overflow-hidden">
       <div class="absolute inset-0 opacity-5">
         <div class="absolute top-0 right-0 w-1/2 h-full bg-black"></div>
       </div>
@@ -896,6 +927,19 @@
 
       window.addEventListener('resize', () => {
         if (!overlay.classList.contains('hidden')) resizeAndDraw();
+      });
+    </script>
+    <script>
+      // Label star rating groups for screen readers
+      document.querySelectorAll('.flex.text-accent.mb-4').forEach(function (el) {
+        if (el.querySelector('.fa-star')) {
+          el.setAttribute('role', 'img');
+          el.setAttribute('aria-label', '5 out of 5 stars');
+        }
+      });
+      // Mark all decorative Font Awesome icons as hidden from assistive technology
+      document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {
+        el.setAttribute('aria-hidden', 'true');
       });
     </script>
   </body>

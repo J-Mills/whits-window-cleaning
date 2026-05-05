@@ -8,6 +8,16 @@
       content="Contact Whit's Window Cleaning for a free quote. Professional window cleaning across Berkshire, Hampshire &amp; Surrey."
     />
     <title>Contact Me – Whit's Window Cleaning</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://www.whitswindowcleaning.co.uk/contact.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.whitswindowcleaning.co.uk/contact.html" />
+    <meta property="og:title" content="Contact Me – Whit's Window Cleaning" />
+    <meta
+      property="og:description"
+      content="Contact Whit's Window Cleaning for a free quote. Professional window cleaning across Berkshire, Hampshire &amp; Surrey."
+    />
+    <meta property="og:image" content="https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
@@ -29,6 +39,11 @@
     </style>
   </head>
   <body class="bg-white text-gray-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-accent focus:text-black focus:font-semibold focus:px-4 focus:py-2 focus:rounded"
+      >Skip to main content</a
+    >
     <!-- NAV -->
     <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -61,7 +76,7 @@
     </nav>
 
     <!-- PAGE HERO -->
-    <section class="bg-black text-white py-16 px-4">
+    <section id="main-content" class="bg-black text-white py-16 px-4">
       <div class="max-w-7xl mx-auto">
         <div class="flex items-center space-x-3 mb-3">
           <div class="h-0.5 w-10 bg-accent"></div>
@@ -87,7 +102,7 @@
           Free tier: 50 submissions/month
         -->
           <div class="lg:col-span-2">
-            <form id="contact-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="space-y-5">
+            <form id="contact-form" action="https://formspree.io/f/mqenbejp" method="POST" class="space-y-5">
               <input type="hidden" name="_subject" value="New quote request – Whit's Window Cleaning" />
               <input type="hidden" name="_next" value="" />
 
@@ -334,6 +349,11 @@
         document.getElementById('form-success').classList.remove('hidden');
         document.getElementById('contact-form').classList.add('hidden');
       }
+    </script>
+    <script>
+      document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {
+        el.setAttribute('aria-hidden', 'true');
+      });
     </script>
   </body>
 </html>
