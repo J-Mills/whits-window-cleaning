@@ -39,6 +39,49 @@
         font-family: 'Poppins', sans-serif;
       }
 
+      .work-photo {
+        position: relative;
+        overflow: hidden;
+        border-radius: 1rem;
+        background: #111;
+        aspect-ratio: 4 / 3;
+      }
+
+      .work-photo img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.35s ease;
+      }
+
+      .work-photo::after {
+        content: '';
+        position: absolute;
+        inset: 45% 0 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+        pointer-events: none;
+      }
+
+      .work-photo figcaption {
+        position: absolute;
+        z-index: 1;
+        left: 1.25rem;
+        right: 1.25rem;
+        bottom: 1.25rem;
+        color: white;
+        font-size: 1.125rem;
+        font-weight: 600;
+        line-height: 1.35;
+      }
+
+      @media (min-width: 640px) {
+        .work-photo { aspect-ratio: 3 / 4; }
+      }
+
+      @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+        .work-photo:hover img { transform: scale(1.035); }
+      }
+
       .window-cleaner {
         position: fixed;
         inset: 0;
@@ -258,7 +301,7 @@
             </h1>
             <p class="text-gray-300 text-lg mb-10 leading-relaxed max-w-xl">
               Professional window cleaning and exterior maintenance for homes and businesses across Berkshire, Hampshire &amp; Surrey. Reliable, fully insured,
-              and guaranteed to just obliterate any and all windows you have.
+              and committed to a high-quality finish on every job.
             </p>
             <div class="flex flex-col sm:flex-row gap-4">
               <a href="contact.html" class="bg-accent text-black font-semibold px-8 py-3 rounded text-center hover:opacity-90 transition-opacity">
@@ -370,6 +413,36 @@
       </div>
     </section>
 
+    <!-- RECENT WORK -->
+    <section class="py-20 bg-white px-4" aria-labelledby="recent-work-title">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-5 mb-10">
+          <div>
+            <div class="flex items-center space-x-3 mb-3">
+              <div class="h-0.5 w-10 bg-accent"></div>
+              <span class="text-accent text-xs font-semibold uppercase tracking-widest">My Work</span>
+            </div>
+            <h2 id="recent-work-title" class="text-3xl sm:text-4xl font-bold">Recent Work</h2>
+          </div>
+          <a href="gallery.html" class="font-semibold underline underline-offset-4 hover:text-cyan-700">View the gallery</a>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+          <figure class="work-photo">
+            <img src="assets/photos/fascia-soffit-front.jpg" alt="White fascia and soffit on a residential property" width="1350" height="1800" loading="lazy" decoding="async" />
+            <figcaption>Fascia &amp; soffit cleaning</figcaption>
+          </figure>
+          <figure class="work-photo">
+            <img src="assets/photos/conservatory-roof-cleaned.jpg" alt="Glass conservatory roof after cleaning" width="1350" height="1800" loading="lazy" decoding="async" />
+            <figcaption>Conservatory roof cleaning</figcaption>
+          </figure>
+          <figure class="work-photo">
+            <img src="assets/photos/solar-panels.jpg" alt="Solar panels on a residential roof" width="1350" height="1800" loading="lazy" decoding="async" />
+            <figcaption>Solar panel cleaning</figcaption>
+          </figure>
+        </div>
+      </div>
+    </section>
+
     <!-- ABOUT -->
     <section class="py-20 bg-white px-4">
       <div class="max-w-7xl mx-auto">
@@ -380,15 +453,14 @@
               <span class="text-accent text-xs font-semibold uppercase tracking-widest">About Me</span>
             </div>
             <h2 class="text-3xl sm:text-4xl font-bold mb-6">About Whit's Window Cleaning</h2>
-            <p class="text-gray-600 mb-4 leading-relaxed">I am a budding window cleaning man who cleans many windows did I mention that I clean windows?</p>
-            <p class="text-gray-600 mb-4 leading-relaxed">I have cleaned windows my whole life, I was born with a squeegee in my hand.</p>
             <p class="text-gray-600 mb-4 leading-relaxed">
-              I cover the entire galaxy and can clean windows on the moon, windows on mars, and even windows on other planets in other galaxies. I am the best
-              window cleaner in the universe.
+              Whit's Window Cleaning is a local, independent business providing window cleaning and exterior maintenance for homes and businesses.
+            </p>
+            <p class="text-gray-600 mb-4 leading-relaxed">
+              I use a purified water-fed pole system for a streak-free finish, and take care to work safely and tidily on every property.
             </p>
             <p class="text-gray-600 mb-8 leading-relaxed">
-              I have a team of highly trained window cleaning monkeys who assist me in my work. They are very good at cleaning windows and they are very fast.
-              They can clean a window in under a second.
+              I cover Berkshire, Hampshire &amp; Surrey, offering regular and one-off cleans with clear, upfront pricing and a friendly, reliable service.
             </p>
             <div class="grid grid-cols-2 gap-4 mb-8">
               <div class="text-center p-4 bg-gray-50 rounded-xl">
@@ -405,12 +477,7 @@
             </a>
           </div>
           <div class="relative">
-            <!-- Replace this block with: <img src="assets/about.jpg" alt="Whit at work" class="rounded-xl shadow-lg w-full object-cover"> -->
-            <div class="bg-gray-100 rounded-xl aspect-[4/3] flex flex-col items-center justify-center border-2 border-dashed border-gray-300">
-              <i class="fa-solid fa-image text-4xl text-gray-300 mb-3"></i>
-              <p class="text-gray-400 text-sm font-medium">Stunning photo of Whit at work, just look at him what a monster</p>
-              <p class="text-gray-300 text-xs mt-1">assets/about.jpg (800×600px)</p>
-            </div>
+            <img src="assets/photos/patio-windows.jpg" alt="Patio doors and windows at a residential property" width="1350" height="1800" loading="lazy" decoding="async" class="rounded-xl shadow-lg w-full aspect-[4/3] object-cover" />
             <div class="absolute -bottom-4 -right-4 bg-accent text-black px-4 py-3 rounded-lg font-bold text-sm shadow-lg">
               Fully Insured<br />&amp; Professional
             </div>
@@ -436,7 +503,7 @@
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
               ><i class="fa-solid fa-star"></i>
             </div>
-            <p class="text-gray-800 text-sm leading-relaxed mb-5">"He cleaned my gutters right out. What a hunk of a man."</p>
+            <p class="text-gray-800 text-sm leading-relaxed mb-5">"Great service from start to finish. Turned up on time and the windows look fantastic."</p>
             <div class="flex items-center space-x-3">
               <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">ST</div>
               <div>
@@ -451,7 +518,7 @@
               ><i class="fa-solid fa-star"></i>
             </div>
             <p class="text-gray-800 text-sm leading-relaxed mb-5">
-              "Made sure he was shirtless the whole time he cleaned my windows. Kept getting nipple-streaks on them but it was ok because I like to watch."
+              "Very professional and reasonably priced. Our gutters were cleared quickly and everything was left tidy."
             </p>
             <div class="flex items-center space-x-3">
               <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">JM</div>
@@ -467,8 +534,7 @@
               ><i class="fa-solid fa-star"></i>
             </div>
             <p class="text-gray-800 text-sm leading-relaxed mb-5">
-              "Had Jack cleaning my windows for 48 straight hours while I was doing a charity livestream, suffice to say that my windows have never been cleaner
-              and I raised over £5000 for charity, what a guy."
+              "Reliable and friendly. We've used Whit's for regular window cleaning for a while now and are always happy with the results."
             </p>
             <div class="flex items-center space-x-3">
               <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">LK</div>
@@ -478,6 +544,14 @@
               </div>
             </div>
           </div>
+        </div>
+        <div class="text-center mt-10">
+          <a
+            href="review.html"
+            class="border-2 border-black text-black font-semibold px-8 py-3 rounded hover:bg-black hover:text-white transition-colors inline-block"
+          >
+            Leave a Review
+          </a>
         </div>
       </div>
     </section>

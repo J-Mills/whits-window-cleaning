@@ -97,14 +97,13 @@
           2. Click "New Form", give it a name, and copy your form ID (e.g. xrgwabcd)
           3. Replace YOUR_FORM_ID in the action attribute below
           4. Every submission will be emailed to your Formspree account email
-          5. Update the _next hidden input to your site's contact page URL + ?sent=true
-             e.g. value="https://whitswindowcleaning.co.uk/contact.html?sent=true"
+          5. The form is sent in the background by the script at the bottom of this page,
+             so visitors stay on the site and see the thank-you message below
           Free tier: 50 submissions/month
         -->
           <div class="lg:col-span-2">
             <form id="contact-form" action="https://formspree.io/f/mqenbejp" method="POST" class="space-y-5">
               <input type="hidden" name="_subject" value="New quote request – Whit's Window Cleaning" />
-              <input type="hidden" name="_next" value="https://www.whitswindowcleaning.co.uk/contact.html?sent=true" />
               <!-- Honeypot: bots fill this, Formspree will silently discard the submission -->
               <input type="text" name="_gotcha" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
 
@@ -209,9 +208,16 @@
               </button>
             </form>
 
-            <div id="form-success" class="hidden mt-6 p-4 bg-accent/10 border border-accent rounded-lg text-sm">
+            <div id="form-error" class="hidden mt-6 p-4 bg-red-50 border border-red-300 rounded-lg text-sm text-red-800" role="alert">
+              <i class="fa-solid fa-circle-exclamation mr-2"></i>
+              Sorry, something went wrong sending that. Please try again, or email
+              <a href="mailto:whitswindowclean@gmail.com" class="underline">whitswindowclean@gmail.com</a>.
+            </div>
+
+            <div id="form-success" class="hidden p-4 bg-accent/10 border border-accent rounded-lg text-sm" role="status">
               <i class="fa-solid fa-circle-check text-accent mr-2"></i>
               Thanks for getting in touch! I'll be back to you within 24 hours.
+              <a href="/" class="font-semibold underline underline-offset-4 hover:text-black ml-1">Back to homepage</a>
             </div>
           </div>
 
@@ -370,10 +376,28 @@
         document.getElementById('mobile-menu').classList.toggle('hidden');
       });
 
-      if (new URLSearchParams(window.location.search).get('sent') === 'true') {
-        document.getElementById('form-success').classList.remove('hidden');
-        document.getElementById('contact-form').classList.add('hidden');
-      }
+      // Submit in the background so visitors stay on the site (Formspree's free plan can't redirect back)
+      const form = document.getElementById('contact-form');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const formError = document.getElementById('form-error');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formError.classList.add('hidden');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60');
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+          if (!res.ok) throw new Error();
+          form.reset();
+          form.classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+        } catch {
+          formError.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-60');
+        }
+      });
     </script>
     <script>
       document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {

@@ -37,21 +37,97 @@
         font-family: 'Poppins', sans-serif;
       }
 
+      #gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-flow: dense;
+        grid-auto-rows: clamp(7.5rem, 32vw, 10rem);
+        gap: 0.75rem;
+      }
+      @media (min-width: 900px) {
+        #gallery-grid {
+          grid-template-columns: repeat(4, minmax(0, 1fr));
+          grid-auto-rows: clamp(9rem, 16vw, 13rem);
+          gap: 1rem;
+        }
+      }
       .gallery-item {
-        break-inside: avoid;
-        margin-bottom: 1rem;
+        position: relative;
+        display: block;
+        min-width: 0;
+        min-height: 0;
+        grid-column: span 1;
+        grid-row: span 2;
+        overflow: hidden;
+        border-radius: 1rem;
+        background: #111;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        isolation: isolate;
+        transition: box-shadow 0.25s ease;
+      }
+      .gallery-item--feature { grid-column: span 2; }
+      .gallery-item--square { grid-row: span 1; }
+      .gallery-item::after {
+        content: '';
+        position: absolute;
+        inset: 35% 0 0;
+        z-index: 0;
+        background: linear-gradient(transparent, rgba(0, 0, 0, 0.72));
+        pointer-events: none;
       }
       .gallery-item img {
-        display: block;
+        position: absolute;
+        inset: 0;
         width: 100%;
-        border-radius: 0.75rem;
-        transition:
-          transform 0.3s ease,
-          box-shadow 0.3s ease;
+        height: 100%;
+        object-fit: cover;
+        object-position: var(--photo-position, center);
+        transition: transform 0.35s ease;
       }
-      .gallery-item:hover img {
-        transform: scale(1.02);
-        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+      .gallery-item:hover,
+      .gallery-item:focus-visible {
+        box-shadow: 0 18px 40px rgba(0, 0, 0, 0.22);
+      }
+      @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+        .gallery-item:hover img { transform: scale(1.035); }
+      }
+      .gallery-tag {
+        position: absolute;
+        z-index: 1;
+        top: 0.8rem;
+        left: 0.8rem;
+        padding: 0.35rem 0.65rem;
+        border-radius: 999px;
+        background: rgba(0, 0, 0, 0.72);
+        color: white;
+        font-size: 0.75rem;
+        font-weight: 700;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+      .gallery-tag--after {
+        background: #5ce1e6;
+        color: black;
+      }
+      .gallery-caption {
+        position: absolute;
+        z-index: 1;
+        right: 0.9rem;
+        bottom: 0.9rem;
+        left: 0.9rem;
+        color: white;
+        font-size: clamp(0.9rem, 1.5vw, 1.15rem);
+        font-weight: 600;
+        line-height: 1.3;
+        text-shadow: 0 1px 8px rgba(0, 0, 0, 0.3);
+      }
+      .gallery-item--feature .gallery-caption {
+        font-size: clamp(1.25rem, 2.5vw, 2rem);
+        max-width: 15ch;
+      }
+      @media (max-width: 380px) {
+        .gallery-tag { top: 0.5rem; left: 0.5rem; padding: 0.25rem 0.5rem; }
+        .gallery-caption { right: 0.6rem; bottom: 0.6rem; left: 0.6rem; }
       }
 
       #lightbox {
@@ -98,7 +174,8 @@
         background: rgba(0, 0, 0, 0.5);
         padding: 0.4rem 1rem;
         border-radius: 999px;
-        white-space: nowrap;
+        max-width: 90vw;
+        text-align: center;
         font-family: 'Poppins', sans-serif;
       }
     </style>
@@ -190,153 +267,69 @@
       </div>
     </div>
 
-    <!--
-    TO ADD YOUR OWN PHOTOS:
-    1. Copy images into the assets/ folder (e.g. assets/job1.jpg)
-    2. Replace each placeholder <img> src with your file path: src="assets/job1.jpg"
-    3. Update the alt text and data-caption for each image
-    4. Set data-category on the parent div to match a filter tab:
-       windows | gutters | conservatory | solar | fascia
-    5. You can add as many gallery-item divs as you like
-  -->
     <section class="py-12 px-4">
       <div class="max-w-7xl mx-auto">
-        <div class="columns-1 sm:columns-2 lg:columns-3 gap-4" id="gallery-grid">
-          <div class="gallery-item cursor-pointer" data-category="windows">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x400/111111/5CE1E6?text=Window+Clean"
-                alt="Residential window cleaning"
-                data-caption="Residential window clean — Guildford"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="gutters">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img src="https://placehold.co/600x750/111111/5CE1E6?text=Gutter+Clear" alt="Gutter clearing" data-caption="Gutter clearing — Woking" />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="conservatory">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img src="https://placehold.co/600x500/111111/5CE1E6?text=Conservatory" alt="Conservatory cleaning" data-caption="Conservatory clean — Epsom" />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="solar">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img src="https://placehold.co/600x450/111111/5CE1E6?text=Solar+Panels" alt="Solar panel cleaning" data-caption="Solar panel clean — Reigate" />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="windows">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x800/111111/5CE1E6?text=Window+Clean+2"
-                alt="Commercial window cleaning"
-                data-caption="Commercial windows — Guildford"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="fascia">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x400/111111/5CE1E6?text=Fascia+%26+Soffit"
-                alt="Fascia and soffit cleaning"
-                data-caption="Fascia &amp; soffit — Dorking"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="gutters">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x500/111111/5CE1E6?text=Gutter+Clear+2"
-                alt="Gutter clearing result"
-                data-caption="Gutter clearing — Leatherhead"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="windows">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img src="https://placehold.co/600x600/111111/5CE1E6?text=Window+Clean+3" alt="Detached house windows" data-caption="Full house clean — Cobham" />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="solar">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x700/111111/5CE1E6?text=Solar+Panels+2"
-                alt="Solar panels after cleaning"
-                data-caption="Solar panel clean — Camberley"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="conservatory">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x450/111111/5CE1E6?text=Conservatory+2"
-                alt="Conservatory after cleaning"
-                data-caption="Conservatory clean — Surbiton"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="fascia">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img
-                src="https://placehold.co/600x550/111111/5CE1E6?text=Fascia+%26+Soffit+2"
-                alt="Fascia cleaning result"
-                data-caption="Fascia &amp; soffit — Redhill"
-              />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
-
-          <div class="gallery-item cursor-pointer" data-category="windows">
-            <div class="relative group overflow-hidden rounded-xl">
-              <img src="https://placehold.co/600x400/111111/5CE1E6?text=Window+Clean+4" alt="Flat window cleaning" data-caption="Flat windows — Kingston" />
-              <div class="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 transition-opacity rounded-xl flex items-center justify-center">
-                <i class="fa-solid fa-expand text-white text-2xl"></i>
-              </div>
-            </div>
-          </div>
+        <div id="gallery-grid">
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 gallery-item--feature" data-category="windows" aria-label="View photo: Patio doors and windows at a residential property" style="--photo-position: 50% 47%">
+            <img src="assets/photos/patio-windows.jpg" alt="Patio doors and windows at a residential property" data-caption="Patio doors and windows at a residential property" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Windows</span>
+            <span class="gallery-caption" aria-hidden="true">Patio windows</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="fascia" aria-label="View photo: White fascia and soffit on a residential property">
+            <img src="assets/photos/fascia-soffit-front.jpg" alt="White fascia and soffit on a residential property" data-caption="White fascia and soffit on a residential property" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Fascia</span>
+            <span class="gallery-caption" aria-hidden="true">Fascia &amp; soffit</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="solar" aria-label="View photo: Solar panels on a residential roof">
+            <img src="assets/photos/solar-panels.jpg" alt="Solar panels on a residential roof" data-caption="Solar panels on a residential roof" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Solar</span>
+            <span class="gallery-caption" aria-hidden="true">Solar panels</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="conservatory" aria-label="View photo: Conservatory roof before cleaning">
+            <img src="assets/photos/conservatory-roof-before.jpg" alt="Conservatory roof before cleaning" data-caption="Conservatory roof before cleaning" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Before</span>
+            <span class="gallery-caption" aria-hidden="true">Conservatory roof</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="conservatory" aria-label="View photo: Conservatory roof after cleaning">
+            <img src="assets/photos/conservatory-roof-cleaned.jpg" alt="Conservatory roof after cleaning" data-caption="Conservatory roof after cleaning" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag gallery-tag--after" aria-hidden="true">After</span>
+            <span class="gallery-caption" aria-hidden="true">Conservatory roof</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="gutters" aria-label="View photo: Gutter beside a conservatory before clearing">
+            <img src="assets/photos/conservatory-gutter-before.jpg" alt="Gutter beside a conservatory before clearing" data-caption="Gutter beside a conservatory before clearing" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Before</span>
+            <span class="gallery-caption" aria-hidden="true">Gutter clearing</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="gutters" aria-label="View photo: Gutter beside a conservatory after clearing">
+            <img src="assets/photos/conservatory-gutter-cleared.jpg" alt="Gutter beside a conservatory after clearing" data-caption="Gutter beside a conservatory after clearing" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag gallery-tag--after" aria-hidden="true">After</span>
+            <span class="gallery-caption" aria-hidden="true">Gutter clearing</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="windows" aria-label="View photo: Roof window before cleaning">
+            <img src="assets/photos/roof-window-before.jpg" alt="Roof window before cleaning" data-caption="Roof window before cleaning" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Before</span>
+            <span class="gallery-caption" aria-hidden="true">Roof window</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="windows" aria-label="View photo: Roof window after cleaning">
+            <img src="assets/photos/roof-window-cleaned.jpg" alt="Roof window after cleaning" data-caption="Roof window after cleaning" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag gallery-tag--after" aria-hidden="true">After</span>
+            <span class="gallery-caption" aria-hidden="true">Roof window</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600" data-category="fascia" aria-label="View photo: White fascia and soffit above patio doors">
+            <img src="assets/photos/fascia-soffit-and-doors.jpg" alt="White fascia and soffit above patio doors" data-caption="White fascia and soffit above patio doors" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Fascia</span>
+            <span class="gallery-caption" aria-hidden="true">Fascia detail</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 gallery-item--square" data-category="gutters" aria-label="View photo: Moss and needles in a gutter before clearing">
+            <img src="assets/photos/gutter-debris-closeup.jpg" alt="Moss and needles in a gutter before clearing" data-caption="Moss and needles in a gutter before clearing" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag" aria-hidden="true">Before</span>
+            <span class="gallery-caption" aria-hidden="true">Gutter close-up</span>
+          </button>
+          <button type="button" class="gallery-item cursor-pointer focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-cyan-600 gallery-item--square" data-category="gutters" aria-label="View photo: Gutter close-up after clearing">
+            <img src="assets/photos/gutter-clearing-detail.jpg" alt="Gutter close-up after clearing" data-caption="Gutter close-up after clearing" width="1350" height="1800" loading="lazy" decoding="async" />
+            <span class="gallery-tag gallery-tag--after" aria-hidden="true">After</span>
+            <span class="gallery-caption" aria-hidden="true">Gutter close-up</span>
+          </button>
         </div>
 
         <div id="gallery-empty" class="hidden text-center py-20 text-gray-400">

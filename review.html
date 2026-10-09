@@ -1,0 +1,346 @@
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Leave a review for Whit's Window Cleaning. Your feedback helps other customers across Berkshire, Hampshire &amp; Surrey." />
+    <title>Leave a Review – Whit's Window Cleaning</title>
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="canonical" href="https://www.whitswindowcleaning.co.uk/review.html" />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://www.whitswindowcleaning.co.uk/review.html" />
+    <meta property="og:title" content="Leave a Review – Whit's Window Cleaning" />
+    <meta property="og:description" content="Leave a review for Whit's Window Cleaning. Your feedback helps other customers across Berkshire, Hampshire &amp; Surrey." />
+    <meta property="og:image" content="https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: { accent: '#5CE1E6' },
+          },
+        },
+      };
+    </script>
+    <style>
+      body {
+        font-family: 'Poppins', sans-serif;
+      }
+
+      .star-rating {
+        display: flex;
+        gap: 0.25rem;
+      }
+
+      .star-rating label {
+        cursor: pointer;
+        font-size: 2rem;
+        line-height: 1;
+        color: #d1d5db;
+        transition: color 0.15s;
+      }
+
+      .star-rating label.is-active {
+        color: #5ce1e6;
+      }
+
+      .star-rating input:focus-visible + label {
+        outline: 2px solid #000;
+        outline-offset: 2px;
+        border-radius: 0.25rem;
+      }
+    </style>
+  </head>
+  <body class="bg-white text-gray-900">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:z-[9999] focus:top-4 focus:left-4 focus:bg-accent focus:text-black focus:font-semibold focus:px-4 focus:py-2 focus:rounded"
+      >Skip to main content</a
+    >
+    <!-- NAV -->
+    <nav class="bg-black text-white sticky top-0 z-50 shadow-lg">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <a href="/" class="flex items-center space-x-3">
+            <div class="w-10 h-10 bg-accent rounded flex items-center justify-center shrink-0">
+              <img src="assets/whits-window-cleaning-logo.png" alt="Whit's Window Cleaning" class="h-8 w-8 object-contain" />
+            </div>
+            <span class="font-semibold text-base sm:text-lg">Whit's Window Cleaning</span>
+          </a>
+          <div class="hidden md:flex items-center space-x-8">
+            <a href="/" class="hover:text-accent transition-colors">Home</a>
+            <a href="services.html" class="hover:text-accent transition-colors">Services</a>
+            <a href="gallery.html" class="hover:text-accent transition-colors">Gallery</a>
+            <a href="contact.html" class="bg-accent text-black px-4 py-2 rounded font-semibold hover:opacity-90 transition-opacity">Get a Quote</a>
+          </div>
+          <button id="mobile-menu-btn" class="md:hidden p-2" aria-label="Toggle menu">
+            <i class="fa-solid fa-bars text-xl"></i>
+          </button>
+        </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden bg-gray-900 border-t border-gray-800">
+        <div class="px-4 py-4 space-y-1">
+          <a href="/" class="block hover:text-accent py-2 transition-colors">Home</a>
+          <a href="services.html" class="block hover:text-accent py-2 transition-colors">Services</a>
+          <a href="gallery.html" class="block hover:text-accent py-2 transition-colors">Gallery</a>
+          <a href="contact.html" class="block bg-accent text-black px-4 py-2 rounded font-semibold text-center mt-3">Get a Quote</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- PAGE HERO -->
+    <section id="main-content" class="bg-black text-white py-16 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="flex items-center space-x-3 mb-3">
+          <div class="h-0.5 w-10 bg-accent"></div>
+          <span class="text-accent text-xs font-semibold uppercase tracking-widest">Reviews</span>
+        </div>
+        <h1 class="text-4xl sm:text-5xl font-bold">Leave a Review</h1>
+        <p class="text-gray-400 mt-3 text-lg max-w-xl">Had work done recently? I'd really appreciate your feedback. It only takes a minute.</p>
+      </div>
+    </section>
+
+    <!-- REVIEW FORM -->
+    <section class="py-16 px-4">
+      <div class="max-w-2xl mx-auto">
+        <!--
+          Submissions go to the same Formspree form as the contact page and arrive by email
+          with the subject "New review". To publish one, copy it into the Reviews section of index.html.
+          Publish reviews fairly: don't leave out negative ones just because they're negative.
+        -->
+        <form id="review-form" action="https://formspree.io/f/mqenbejp" method="POST" class="space-y-5">
+          <input type="hidden" name="_subject" value="New review – Whit's Window Cleaning" />
+          <input type="hidden" name="form_type" value="Review" />
+          <!-- Honeypot: bots fill this, Formspree will silently discard the submission -->
+          <input type="text" name="_gotcha" style="display: none" tabindex="-1" autocomplete="off" aria-hidden="true" />
+
+          <fieldset>
+            <legend class="block text-sm font-medium text-gray-700 mb-1.5">Rating <span class="text-red-500">*</span></legend>
+            <div class="star-rating" id="star-rating">
+              <input type="radio" id="rating-1" name="rating" value="1" class="sr-only" required />
+              <label for="rating-1" aria-label="1 star"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="rating-2" name="rating" value="2" class="sr-only" />
+              <label for="rating-2" aria-label="2 stars"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="rating-3" name="rating" value="3" class="sr-only" />
+              <label for="rating-3" aria-label="3 stars"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="rating-4" name="rating" value="4" class="sr-only" />
+              <label for="rating-4" aria-label="4 stars"><i class="fa-solid fa-star"></i></label>
+              <input type="radio" id="rating-5" name="rating" value="5" class="sr-only" />
+              <label for="rating-5" aria-label="5 stars"><i class="fa-solid fa-star"></i></label>
+            </div>
+          </fieldset>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+            <div>
+              <label for="name" class="block text-sm font-medium text-gray-700 mb-1.5"> Name <span class="text-red-500">*</span> </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autocomplete="name"
+                placeholder="John Smith"
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              />
+            </div>
+            <div>
+              <label for="town" class="block text-sm font-medium text-gray-700 mb-1.5"> Town <span class="text-red-500">*</span> </label>
+              <input
+                type="text"
+                id="town"
+                name="town"
+                required
+                autocomplete="address-level2"
+                placeholder="e.g. Guildford"
+                class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label for="email" class="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autocomplete="email"
+              placeholder="john@example.com"
+              aria-describedby="email-hint"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent"
+            />
+            <p id="email-hint" class="text-xs text-gray-500 mt-1.5">Optional, never shown publicly. Only used if I need to check something about your review.</p>
+          </div>
+
+          <div>
+            <label for="service" class="block text-sm font-medium text-gray-700 mb-1.5">Service Received</label>
+            <select
+              id="service"
+              name="service"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent bg-white"
+            >
+              <option value="">Select a service…</option>
+              <option>Window Cleaning</option>
+              <option>Fascia &amp; Soffit Cleaning</option>
+              <option>Conservatory Cleaning</option>
+              <option>Gutter Clearing</option>
+              <option>Solar Panel Cleaning</option>
+              <option>Multiple Services</option>
+            </select>
+          </div>
+
+          <div>
+            <label for="review" class="block text-sm font-medium text-gray-700 mb-1.5"> Your Review <span class="text-red-500">*</span> </label>
+            <textarea
+              id="review"
+              name="review"
+              required
+              rows="5"
+              maxlength="1000"
+              placeholder="How did the job go?"
+              class="w-full border border-gray-200 rounded-lg px-4 py-3 text-sm focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent resize-none"
+            ></textarea>
+          </div>
+
+          <div class="flex items-start gap-3">
+            <input type="checkbox" id="consent" name="publish_consent" value="Yes" required class="mt-1 h-4 w-4 accent-black shrink-0" />
+            <label for="consent" class="text-sm text-gray-600">
+              I'm happy for my review, first name, surname initial and town to be shown on this website. <span class="text-red-500">*</span>
+              <a href="privacy.html" class="underline hover:text-black">Privacy policy</a>
+            </label>
+          </div>
+
+          <button type="submit" class="w-full sm:w-auto bg-black text-white font-semibold px-10 py-3 rounded-lg hover:bg-gray-900 transition-colors">
+            Submit Review
+          </button>
+        </form>
+
+        <div id="form-error" class="hidden mt-6 p-4 bg-red-50 border border-red-300 rounded-lg text-sm text-red-800" role="alert">
+          <i class="fa-solid fa-circle-exclamation mr-2"></i>
+          Sorry, something went wrong sending that. Please try again, or email
+          <a href="mailto:whitswindowclean@gmail.com" class="underline">whitswindowclean@gmail.com</a>.
+        </div>
+
+        <div id="form-success" class="hidden p-4 bg-accent/10 border border-accent rounded-lg text-sm" role="status">
+          <i class="fa-solid fa-circle-check text-accent mr-2"></i>
+          Thanks for your review! It'll appear on the site once I've added it.
+          <a href="/" class="font-semibold underline underline-offset-4 hover:text-black ml-1">Back to homepage</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-black text-white py-12 px-4">
+      <div class="max-w-7xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div class="flex items-center space-x-3 mb-4">
+              <div class="w-10 h-10 bg-accent rounded flex items-center justify-center shrink-0">
+                <img src="assets/whits-window-cleaning-logo.png" alt="Whit's Window Cleaning" class="h-8 w-8 object-contain" />
+              </div>
+              <span class="font-semibold">Whit's Window Cleaning</span>
+            </div>
+            <p class="text-gray-400 text-sm leading-relaxed">Professional window cleaning and exterior maintenance across Berkshire, Hampshire &amp; Surrey.</p>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4 text-accent">Quick Links</h4>
+            <ul class="space-y-2 text-gray-400 text-sm">
+              <li><a href="/" class="hover:text-white transition-colors">Home</a></li>
+              <li><a href="services.html" class="hover:text-white transition-colors">Services</a></li>
+              <li><a href="gallery.html" class="hover:text-white transition-colors">Gallery</a></li>
+              <li><a href="contact.html" class="hover:text-white transition-colors">Contact</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-semibold mb-4 text-accent">Get In Touch</h4>
+            <ul class="space-y-3 text-gray-400 text-sm">
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-phone text-accent w-4 shrink-0"></i>
+                <a href="tel:+447951115977" class="hover:text-white transition-colors">07951 115 977</a>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-envelope text-accent w-4 shrink-0"></i>
+                <a href="mailto:whitswindowclean@gmail.com" class="hover:text-white transition-colors">whitswindowclean@gmail.com</a>
+              </li>
+              <li class="flex items-center space-x-2">
+                <i class="fa-solid fa-location-dot text-accent w-4 shrink-0"></i>
+                <span>Berkshire, Hampshire &amp; Surrey</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-gray-800 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 text-gray-500 text-sm">
+          <p>&copy; 2026 Whit's Window Cleaning. All rights reserved.</p>
+          <div class="flex items-center gap-5">
+            <a
+              href="https://www.facebook.com/YOUR_PAGE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-accent transition-colors"
+              aria-label="Whit's Window Cleaning on Facebook"
+              ><i class="fa-brands fa-facebook-f text-lg" aria-hidden="true"></i
+            ></a>
+            <a
+              href="https://www.instagram.com/YOUR_HANDLE"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="hover:text-accent transition-colors"
+              aria-label="Whit's Window Cleaning on Instagram"
+              ><i class="fa-brands fa-instagram text-lg" aria-hidden="true"></i
+            ></a>
+            <a href="privacy.html" class="hover:text-white transition-colors">Privacy Policy</a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document.getElementById('mobile-menu-btn').addEventListener('click', () => {
+        document.getElementById('mobile-menu').classList.toggle('hidden');
+      });
+
+      // Submit in the background so visitors stay on the site (Formspree's free plan can't redirect back)
+      const form = document.getElementById('review-form');
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const formError = document.getElementById('form-error');
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        formError.classList.add('hidden');
+        submitBtn.disabled = true;
+        submitBtn.classList.add('opacity-60');
+        try {
+          const res = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { Accept: 'application/json' } });
+          if (!res.ok) throw new Error();
+          form.reset();
+          paintStars(0);
+          form.classList.add('hidden');
+          document.getElementById('form-success').classList.remove('hidden');
+        } catch {
+          formError.classList.remove('hidden');
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.classList.remove('opacity-60');
+        }
+      });
+
+      // Highlight stars up to the hovered / selected rating
+      const starLabels = document.querySelectorAll('#star-rating label');
+      const starInputs = document.querySelectorAll('#star-rating input');
+      const paintStars = (n) => starLabels.forEach((l, i) => l.classList.toggle('is-active', i < n));
+      const selectedRating = () => Number(document.querySelector('#star-rating input:checked')?.value || 0);
+      starInputs.forEach((input) => input.addEventListener('change', () => paintStars(selectedRating())));
+      starLabels.forEach((label, i) => {
+        label.addEventListener('mouseenter', () => paintStars(i + 1));
+        label.addEventListener('mouseleave', () => paintStars(selectedRating()));
+      });
+    </script>
+    <script>
+      document.querySelectorAll('i[class*="fa-"]').forEach(function (el) {
+        el.setAttribute('aria-hidden', 'true');
+      });
+    </script>
+  </body>
+</html>
