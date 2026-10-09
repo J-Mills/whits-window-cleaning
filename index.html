@@ -82,6 +82,26 @@
         .work-photo:hover img { transform: scale(1.035); }
       }
 
+      .reviews-track {
+        scrollbar-width: none;
+      }
+
+      .reviews-track::-webkit-scrollbar {
+        display: none;
+      }
+
+      .review-card {
+        width: 85%;
+      }
+
+      @media (min-width: 640px) {
+        .review-card { width: calc(50% - 0.75rem); }
+      }
+
+      @media (min-width: 1024px) {
+        .review-card { width: calc(33.333% - 1rem); }
+      }
+
       .window-cleaner {
         position: fixed;
         inset: 0;
@@ -243,7 +263,8 @@
         "areaServed": ["Berkshire", "Hampshire", "Surrey"],
         "serviceType": ["Window Cleaning", "Fascia & Soffit Cleaning", "Conservatory Cleaning", "Gutter Clearing", "Solar Panel Cleaning"],
         "priceRange": "\u00a3\u00a3",
-        "image": "https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png"
+        "image": "https://www.whitswindowcleaning.co.uk/assets/whits-window-cleaning-logo.png",
+        "sameAs": ["https://www.facebook.com/share/18a5uo1HNV/", "https://www.instagram.com/whitswindowcleaning/"]
       }
     </script>
   </head>
@@ -497,8 +518,14 @@
           </div>
           <h2 class="text-3xl sm:text-4xl font-bold">What My Customers Say</h2>
         </div>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+        <div
+          id="reviews-track"
+          class="reviews-track flex gap-6 overflow-x-auto snap-x snap-mandatory -mx-4 px-4 scroll-px-4 pb-2"
+          role="region"
+          aria-label="Customer reviews"
+          tabindex="0"
+        >
+          <div class="review-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col snap-start shrink-0">
             <div class="flex text-accent mb-4 text-sm gap-0.5">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
               ><i class="fa-solid fa-star"></i>
@@ -512,7 +539,21 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+          <div class="review-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col snap-start shrink-0">
+            <div class="flex text-accent mb-4 text-sm gap-0.5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-gray-800 text-sm leading-relaxed mb-5 flex-1">"Jack always does a brilliant job on my windows and orangery roof. Recently I had some work done on the outside of my house and by the end of the works my windows were exceptionally dirty but Jack got them gleaming again no problem."</p>
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">AS</div>
+              <div>
+                <div class="font-semibold text-sm">Anna S.</div>
+                <div class="text-gray-600 text-xs">Wallington</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col snap-start shrink-0">
             <div class="flex text-accent mb-4 text-sm gap-0.5">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
               ><i class="fa-solid fa-star"></i>
@@ -526,7 +567,21 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+          <div class="review-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col snap-start shrink-0">
+            <div class="flex text-accent mb-4 text-sm gap-0.5">
+              <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
+              ><i class="fa-solid fa-star"></i>
+            </div>
+            <p class="text-gray-800 text-sm leading-relaxed mb-5 flex-1">"Jack is excellent and always does a good job and I’d be happy to recommend his services."</p>
+            <div class="flex items-center space-x-3">
+              <div class="w-9 h-9 bg-accent rounded-full flex items-center justify-center text-black font-bold text-xs shrink-0">TO</div>
+              <div>
+                <div class="font-semibold text-sm">Trevor O.</div>
+                <div class="text-gray-600 text-xs">Sunningdale</div>
+              </div>
+            </div>
+          </div>
+          <div class="review-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col snap-start shrink-0">
             <div class="flex text-accent mb-4 text-sm gap-0.5">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
               ><i class="fa-solid fa-star"></i>
@@ -540,7 +595,7 @@
               </div>
             </div>
           </div>
-          <div class="bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col">
+          <div class="review-card bg-white rounded-xl p-6 shadow-sm border border-gray-100 flex flex-col snap-start shrink-0">
             <div class="flex text-accent mb-4 text-sm gap-0.5">
               <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i
               ><i class="fa-solid fa-star"></i>
@@ -554,6 +609,24 @@
               </div>
             </div>
           </div>
+        </div>
+        <div id="reviews-controls" class="flex justify-center gap-3 mt-6">
+          <button
+            id="reviews-prev"
+            type="button"
+            class="w-11 h-11 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors disabled:opacity-30 disabled:pointer-events-none"
+            aria-label="Previous reviews"
+          >
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button
+            id="reviews-next"
+            type="button"
+            class="w-11 h-11 rounded-full border-2 border-black flex items-center justify-center hover:bg-black hover:text-white transition-colors disabled:opacity-30 disabled:pointer-events-none"
+            aria-label="More reviews"
+          >
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
         <div class="text-center mt-10">
           <a
@@ -634,7 +707,7 @@
           <p>&copy; 2026 Whit's Window Cleaning. All rights reserved.</p>
           <div class="flex items-center gap-5">
             <a
-              href="https://www.facebook.com/YOUR_PAGE"
+              href="https://www.facebook.com/share/18a5uo1HNV/"
               target="_blank"
               rel="noopener noreferrer"
               class="hover:text-accent transition-colors"
@@ -642,7 +715,7 @@
               ><i class="fa-brands fa-facebook-f text-lg" aria-hidden="true"></i
             ></a>
             <a
-              href="https://www.instagram.com/YOUR_HANDLE"
+              href="https://www.instagram.com/whitswindowcleaning/"
               target="_blank"
               rel="noopener noreferrer"
               class="hover:text-accent transition-colors"
@@ -1031,6 +1104,29 @@
       window.addEventListener('resize', () => {
         if (!overlay.classList.contains('hidden')) resizeAndDraw();
       });
+    </script>
+    <script>
+      // Reviews carousel: arrows scroll one "page" of cards; hidden when everything fits
+      const reviewsTrack = document.getElementById('reviews-track');
+      const reviewsPrev = document.getElementById('reviews-prev');
+      const reviewsNext = document.getElementById('reviews-next');
+      const reviewsControls = document.getElementById('reviews-controls');
+      const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      function updateReviewArrows() {
+        const max = reviewsTrack.scrollWidth - reviewsTrack.clientWidth;
+        reviewsControls.classList.toggle('hidden', max <= 1);
+        reviewsPrev.disabled = reviewsTrack.scrollLeft <= 1;
+        reviewsNext.disabled = reviewsTrack.scrollLeft >= max - 1;
+      }
+
+      const scrollReviews = (dir) =>
+        reviewsTrack.scrollBy({ left: dir * reviewsTrack.clientWidth, behavior: reduceMotion ? 'auto' : 'smooth' });
+      reviewsPrev.addEventListener('click', () => scrollReviews(-1));
+      reviewsNext.addEventListener('click', () => scrollReviews(1));
+      reviewsTrack.addEventListener('scroll', updateReviewArrows, { passive: true });
+      window.addEventListener('resize', updateReviewArrows);
+      updateReviewArrows();
     </script>
     <script>
       // Label star rating groups for screen readers
